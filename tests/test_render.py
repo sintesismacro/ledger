@@ -36,3 +36,20 @@ def test_full_ledger_renders(repo):
     assert card["overall"]["calibration"] is not None
     ET.fromstring(scorecard_svg(card, 12))
     ET.fromstring(calibration_svg(card))
+
+
+def test_renders_follow_the_brand(repo):
+    """Brand palette and embedded typefaces only; the stand-in identity of 22 October 2026 must not return."""
+    card = scorecard([], today=dt.date(2099, 1, 1))
+    svgs = [
+        scorecard_svg(card, 0),
+        calibration_svg(card),
+        atlas_svg(atlas_state([], load_atlas(repo)), "2099-01-01"),
+    ]
+    for svg in svgs:
+        assert "#201E1D" in svg and "#F3F2F2" in svg
+        for legacy in ("#0B0D12", "#161A24", "#F2EFE8", "#8A94A6", "#2DB89F", "Inter,"):
+            assert legacy not in svg
+        assert "font-family:'Archivo'" in svg and "font-family:'IBM Plex Mono'" in svg
+        assert ' rx="' not in svg  # square corners, always
+    assert scorecard_svg(card).count("#F2C300") == 1  # one Cadmium point
