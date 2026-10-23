@@ -49,6 +49,8 @@ The Guild opens to invited forecasters once the ledger has a resolved record. Se
 
 Forecasts, the Atlas data, the letters and `METHOD.md` are licensed under CC BY 4.0
 ([`LICENSE-DATA.md`](LICENSE-DATA.md)). The code is proprietary ([`LICENSE`](LICENSE)).
+The charts embed Archivo and IBM Plex Mono under the SIL Open Font License 1.1
+([`ledger/fonts/`](ledger/fonts/)).
 Nothing here is investment advice, an offer or a solicitation. No issuer or security is named.
 
 [sintesismacro.com](https://www.sintesismacro.com) · <office@sintesismacro.com>
