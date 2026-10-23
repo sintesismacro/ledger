@@ -8,8 +8,11 @@ accepted by invitation; open an issue first if you want to propose one.
 - `main` is the only long-lived branch and is always releasable.
 - Work on short-lived branches named `type/short-description`, where `type` is
   one of `feat`, `fix`, `refactor`, `docs`, `ci`.
-- Merge by pull request only, squash-merged, after one approving review from a
-  code owner and green CI. No force-pushes to `main`.
+- Merge by pull request only, after green CI, using rebase merging. Rebase keeps
+  every commit's author, so `git blame` on `main` still shows who wrote each
+  `probability:` line (METHOD.md § 3). Squash and merge commits are disabled.
+- No force-pushes or deletions on `main` or `evidence`; administrators are bound
+  by the same rules.
 
 ## Commits
 
