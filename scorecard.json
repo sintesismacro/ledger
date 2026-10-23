@@ -1,0 +1,20 @@
+{
+  "as_of": "2026-10-23",
+  "baseline_brier": 0.25,
+  "by_domain": {},
+  "by_forecaster": {},
+  "calibration_min_resolved": 10,
+  "invalid_files": [],
+  "overall": {
+    "annulled": 0,
+    "brier": null,
+    "calibration": null,
+    "forecasts": 0,
+    "log_score": null,
+    "next_resolution": null,
+    "open": 0,
+    "overdue": 0,
+    "resolved": 0,
+    "skill_vs_50pct": null
+  }
+}
