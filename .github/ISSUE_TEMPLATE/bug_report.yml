@@ -1,0 +1,43 @@
+name: Bug report
+description: Something behaves differently from what the record or the documentation says.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed
+      description: What happened. Paste the exact output or error.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+      description: What should have happened, with the rule or document that says so.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: e.g. v0.3.1 or a1b2c3d
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      options:
+        - Cosmetic
+        - Wrong figure in a record
+        - Blocks a workflow
+        - Could affect an order or a risk limit
+    validations:
+      required: true

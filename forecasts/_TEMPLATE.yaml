@@ -1,0 +1,25 @@
+# Copy to forecasts/FEL-YYYY-NNNN.yaml. Files starting with "_" are ignored by CI.
+# Agents may draft every field EXCEPT `probability`, which only the forecaster writes.
+id: FEL-YYYY-NNNN
+domain: physical-ai-power            # physical-ai-power | ai-finance-replication
+forecaster: fredy-solano             # GitHub handle registered in editorial/forecasters.yaml
+question: >
+  Will <observable indicator> <exceed / fall below> <threshold> in <period>?
+stance: becoming                     # the voice a YES outcome supports: becoming | returning
+atlas_nodes: []                      # e.g. [generation, grid]
+resolution_source: >
+  <Publisher, publication, table or series>
+resolution_rule: >
+  <Exactly how the printed value decides YES or NO, including revisions and publication lag.>
+resolves_on: YYYY-MM-DD
+threshold: null                      # number or short text, set from the latest print
+probability: null                    # 0.03–0.97, set by the forecaster at merge
+becoming: >
+  <Spinoza's voice: the case that the body of intelligence keeps extending.>
+returning: >
+  <Mainländer's voice: the case that necessity is removed and the build-out exhausts itself.>
+synthesis: >
+  <Why the probability sits where it does between the two voices.>
+evidence: []                         # appended weekly: {date: YYYY-MM-DD, url: ..., note: ...}
+self_resolved: false                 # true only when SINTESIS's own replication decides it
+status: open                         # open | resolved-yes | resolved-no | annulled

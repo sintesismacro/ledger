@@ -1,0 +1,5 @@
+# SYNTHETIC TEST FIXTURE — not ledger data.
+nodes:
+  - {id: generation, label: Power generation, phase: Power}
+  - {id: grid, label: Transmission and grid, phase: Power}
+  - {id: robotics, label: Robotics and actuators, phase: Embodiment}

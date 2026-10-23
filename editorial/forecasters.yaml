@@ -1,0 +1,6 @@
+# Who may write a forecast's probability. CI checks the author e-mail of the `probability:` line
+# against this list and fails closed when a forecaster has no e-mail registered.
+# Register the e-mail address your commits use (Settings → Emails; the GitHub noreply address works).
+forecasters:
+  fredy-solano:
+    emails: [241282123+fredy-solano@users.noreply.github.com]   # GitHub web edits (private-email mode)

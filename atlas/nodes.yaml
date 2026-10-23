@@ -1,0 +1,34 @@
+# The Atlas: physical layers of the build-out, from the essay "Intelligence as Infrastructure
+# and Meaning as Scarcity" (8 June 2026). Layers only — no issuer is ever named here.
+# A forecast links to a node through its `atlas_nodes` field. Licence: CC BY 4.0 (LICENSE-DATA.md).
+nodes:
+  - id: compute
+    label: Accelerated compute
+    phase: Compute
+  - id: memory
+    label: High-bandwidth memory
+    phase: Compute
+  - id: packaging
+    label: Advanced packaging and foundry
+    phase: Compute
+  - id: data-centres
+    label: Data centres
+    phase: Compute
+  - id: generation
+    label: Power generation
+    phase: Power
+  - id: grid
+    label: Transmission and grid
+    phase: Power
+  - id: cooling
+    label: Cooling
+    phase: Power
+  - id: power-electronics
+    label: Power electronics
+    phase: Power
+  - id: robotics
+    label: Robotics and actuators
+    phase: Embodiment
+  - id: sensing
+    label: Sensors and machine vision
+    phase: Embodiment

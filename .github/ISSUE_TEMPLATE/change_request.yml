@@ -1,0 +1,35 @@
+name: Change request
+description: A new capability, rule or template, or a change to an existing one.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What decision, workflow or record is worse without this change?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What should change, and what should stay the same.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Sources, examples or figures that support the change. Say if any are missing.
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - Documentation only
+        - Template or record format
+        - Skill or agent behaviour
+        - Code
+        - Governance rule
+    validations:
+      required: true

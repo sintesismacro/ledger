@@ -1,0 +1,15 @@
+* text=auto eol=lf
+
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.pdf  binary
+*.docx binary
+*.xlsx binary
+*.pptx binary
+*.parquet binary
+
+# Keep generated and vendored content out of diffs and language stats
+*.lock linguist-generated=true
+docs/** linguist-documentation=true

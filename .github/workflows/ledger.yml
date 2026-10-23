@@ -1,0 +1,80 @@
+name: Ledger
+
+# Pull requests: schema, editorial perimeter, no-backfill rule and probability ownership.
+# Main and the weekly schedule: score, render the scorecard, calibration chart and Atlas, and
+# request qualified timestamps for new commitments. Outputs go to the `evidence` branch, so
+# the protected `main` branch is never written by a bot.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 5 * * 1"    # Mondays 05:00 UTC: refresh dates and overdue counts
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ledger-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+      - name: Validate against the base branch
+        run: python -m ledger validate --base "origin/${{ github.base_ref }}"
+
+  publish:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+      - name: Validate main
+        run: python -m ledger validate
+      - name: Check out the evidence branch
+        run: |
+          if git ls-remote --exit-code --heads origin evidence >/dev/null; then
+            git fetch origin evidence
+            git worktree add -B evidence _evidence origin/evidence
+          else
+            git worktree add --detach _evidence
+            cd _evidence
+            git checkout --orphan evidence
+            git rm -rf . --quiet || true
+          fi
+      - name: Score, render and stamp
+        env:
+          TSA_URL: ${{ secrets.TSA_URL }}
+        run: python -m ledger publish --out _evidence
+      - name: Commit to the evidence branch
+        run: |
+          cd _evidence
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No change."
+            exit 0
+          fi
+          git -c user.name="sintesis-ledger" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -m "evidence: publish scorecard ($(date -u +%Y-%m-%d))"
+          git push origin evidence

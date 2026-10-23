@@ -1,0 +1,29 @@
+# Editorial perimeter — SINTESIS-PLAN-05 § 6. Terms here must never appear in public files
+# (forecasts, atlas, letters, README, METHOD, GUILD). One term or phrase per line; case-insensitive.
+# Maintained by the owner. CI fails on any match.
+
+# Performance language
+alpha
+sharpe
+sharpe ratio
+outperform
+underperform
+guaranteed
+
+# Recommendation language
+buy rating
+sell rating
+strong buy
+price target
+overweight
+underweight
+
+# Named issuers — add any issuer before it can slip into a public file
+NVIDIA
+TSMC
+SK Hynix
+ASML
+Micron
+
+# Never in SINTESIS public material
+SUPERREALIS
