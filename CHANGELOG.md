@@ -3,6 +3,15 @@
 All notable changes to this repository are recorded here, newest first.
 Format: `## vMAJOR.MINOR.PATCH — YYYY-MM-DD`, then **Changed**, **Affects**, **Re-check**.
 
+## v0.1.3 — 2026-10-24
+
+**Changed** — Letter 0 published (`letters/2026-10-letter-0.md`). `GUILD.md` rewritten for the
+owner's decision of 24 October 2026: an open Arena that opens with the first questions, and a
+Guild wall that collects forecasters after ten resolved forecasts.
+**Affects** — Public text only; no rule in `METHOD.md` changes.
+**Re-check** — Contributor terms must be cleared by counsel and published here before the Arena
+opens.
+
 ## v0.1.2 — 2026-10-23
 
 **Changed** — Scorecard, calibration chart and Atlas redrawn in the SINTESIS identity of
